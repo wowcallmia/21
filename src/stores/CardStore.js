@@ -58,7 +58,7 @@ class CardsStore extends EventEmitter {
     this.on('CHANGE', () => {
       if (_bjObject.winner) {
         setTimeout(() => alert(_bjObject.winner === 'player' ? 'You Win!' : 'You Lose!'), 1000);
-      }yes
+      }
     });
   }
 
@@ -73,7 +73,7 @@ class CardsStore extends EventEmitter {
   getSum(role) {
     let { dealer, player } = _bjObject;
     let value = (role === 'player' ? player : dealer);
-    let c = value.filter(card => card[1].substr(0,1) === 'a').length; 
+    let c = value.filter(card => card[1].substr(0,1) === 'a').length;
     let sum  = value.reduce((s, card) => s + card[0], 0);
     if (sum + (c * 10) <= 21) return sum + (c * 10);
     return sum;
